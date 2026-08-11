@@ -2,6 +2,8 @@
 
 /* ---------------------------------------------------------------------------
    Tema: data-theme="dark" | "light" na <html>, a bez atributa prati sistem.
+   SSR šalje data-theme="dark" — tamna je podrazumevana, sistem se prati
+   samo ako korisnik izričito izabere „po sistemu".
    Sve boje idu kroz varijable — nema hardkodovanih hex vrednosti u JSX-u.
 --------------------------------------------------------------------------- */
 

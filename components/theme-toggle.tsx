@@ -23,17 +23,17 @@ export function applyTheme(theme: Theme) {
 }
 
 export function ThemeToggle({ className = "" }: { className?: string }) {
-  const [theme, setTheme] = useState<Theme>("system");
+  // Bez sačuvanog izbora sajt je taman, pa je i „mesec" aktivan.
+  const [theme, setTheme] = useState<Theme>("dark");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     try {
       const stored = localStorage.getItem("sajtoskop-theme") as Theme | null;
-      if (stored === "light" || stored === "dark") setTheme(stored);
-      else setTheme("system");
+      setTheme(stored === "light" || stored === "system" ? stored : "dark");
     } catch {
-      setTheme("system");
+      setTheme("dark");
     }
   }, []);
 

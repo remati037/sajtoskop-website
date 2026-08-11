@@ -47,19 +47,20 @@ export const metadata: Metadata = {
   },
 };
 
+// Podrazumevana tema je tamna bez obzira na sistem, pa je i boja browser trake tamna.
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#07080a" },
-  ],
+  themeColor: "#07080a",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
+    // data-theme="dark" je podrazumevano stanje — skripta u <head> ga menja
+    // samo ako korisnik ima sačuvan izbor.
     <html
       lang="sr-Latn-RS"
+      data-theme="dark"
       className={`${GeistSans.variable} ${GeistMono.variable}`}
       suppressHydrationWarning
     >
