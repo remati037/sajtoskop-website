@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
+import { waitlistHtml, waitlistSubject, waitlistText } from "@/lib/emails/waitlist";
 import { site } from "@/lib/site";
 
 export const runtime = "nodejs";
@@ -165,20 +166,19 @@ export async function POST(request: Request) {
       await resend.emails.send({
         from,
         to: normalized,
-        subject: "Upisan si na Sajtoskop betu",
-        text: [
-          "Zdravo,",
-          "",
-          "Primio sam tvoju prijavu za Sajtoskop betu.",
-          "",
-          "Puštam ljude u malim grupama, jednu po jednu poruku, da mogu da ispratim",
-          "gde se ko zaglavi. Javim ti se lično sa pristupom, sa ove iste adrese.",
-          "",
-          "Ako u međuvremenu imaš pitanje, samo odgovori na ovaj mejl.",
-          "",
-          `— ${site.author}, ${site.company}`,
-          site.url,
-        ].join("\n"),
+        // Poruka poziva čoveka da odgovori, pa odgovor mora da stigne u inboks
+        // koji stvarno čitaš, ne na adresu sa koje se šalje.
+        replyTo: notifyTo,
+        subject: waitlistSubject,
+        // Obe verzije idu zajedno: klijenti bez HTML-a dobijaju tekst, a i
+        // filteri za spam gledaju da li obe postoje.
+        html: waitlistHtml(),
+        text: waitlistText,
+        headers: {
+          // Gmail i Yahoo gledaju da li pošiljalac nudi odjavu. Ovde je to
+          // mejl, jer listu vodiš ručno i nema stranice za odjavu.
+          "List-Unsubscribe": `<mailto:${notifyTo}?subject=Odjava%20sa%20liste>`,
+        },
       });
     } catch (err) {
       console.error("[waitlist] resend failed:", err);
