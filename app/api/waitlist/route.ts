@@ -8,6 +8,51 @@ export const dynamic = "force-dynamic";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+/**
+ * Atribucija stiže iz pretraživača, znači iz nepouzdanog izvora — svako polje
+ * se seče na 300 znakova i sve što nije string postaje null.
+ */
+type AttributionRow = {
+  landing_referrer: string | null;
+  landing_path: string | null;
+  utm_source: string | null;
+  utm_medium: string | null;
+  utm_campaign: string | null;
+  utm_content: string | null;
+  utm_term: string | null;
+  click_id: string | null;
+};
+
+function field(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const trimmed = value.trim().slice(0, 300);
+  return trimmed.length > 0 ? trimmed : null;
+}
+
+function parseAttribution(input: unknown): AttributionRow {
+  const a = (input ?? {}) as Record<string, unknown>;
+  return {
+    landing_referrer: field(a.referrer),
+    landing_path: field(a.landingPath),
+    utm_source: field(a.utmSource),
+    utm_medium: field(a.utmMedium),
+    utm_campaign: field(a.utmCampaign),
+    utm_content: field(a.utmContent),
+    utm_term: field(a.utmTerm),
+    click_id: field(a.clickId),
+  };
+}
+
+/** Kratak opis kanala za mejl notifikaciju. */
+function channel(a: AttributionRow): string {
+  if (a.utm_source) {
+    return [a.utm_source, a.utm_medium, a.utm_campaign].filter(Boolean).join(" / ");
+  }
+  if (a.landing_referrer) return a.landing_referrer;
+  if (a.click_id) return "plaćeni klik (gclid/fbclid)";
+  return "direktan dolazak";
+}
+
 /** Grubi in-memory rate limit — dovoljno za landing, nije zamena za WAF. */
 const hits = new Map<string, { n: number; reset: number }>();
 const WINDOW_MS = 60_000;
@@ -41,7 +86,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, code: "bad_json" }, { status: 400 });
   }
 
-  const { email, source } = (body ?? {}) as { email?: unknown; source?: unknown };
+  const { email, source, attribution } = (body ?? {}) as {
+    email?: unknown;
+    source?: unknown;
+    attribution?: unknown;
+  };
 
   if (typeof email !== "string" || !EMAIL_RE.test(email.trim()) || email.length > 254) {
     return NextResponse.json({ ok: false, code: "bad_email" }, { status: 400 });
@@ -49,6 +98,7 @@ export async function POST(request: Request) {
 
   const normalized = email.trim().toLowerCase();
   const src = typeof source === "string" ? source.slice(0, 40) : "unknown";
+  const attr = parseAttribution(attribution);
 
   // ── 1. upis u bazu ──────────────────────────────────────────────
   const supabaseUrl = process.env.SUPABASE_URL;
@@ -66,6 +116,7 @@ export async function POST(request: Request) {
         country_code: "RS",
         user_agent: request.headers.get("user-agent")?.slice(0, 300) ?? null,
         referrer: request.headers.get("referer")?.slice(0, 300) ?? null,
+        ...attr,
       });
 
       if (error) {
@@ -103,7 +154,9 @@ export async function POST(request: Request) {
         subject: `Nova beta prijava: ${normalized}`,
         text: [
           `Mejl: ${normalized}`,
-          `Izvor: ${src}`,
+          `Sekcija: ${src}`,
+          `Kanal: ${channel(attr)}`,
+          `Ulazna stranica: ${attr.landing_path ?? "nepoznata"}`,
           `IP: ${ip}`,
           `Vreme: ${new Date().toISOString()}`,
         ].join("\n"),

@@ -3,6 +3,8 @@
 import { useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
+import { track } from "@/lib/analytics";
+import { readAttribution } from "@/lib/attribution";
 import { cta } from "@/lib/content";
 import { ctaMode, signUpUrl } from "@/lib/site";
 import { Magnetic } from "./motion-primitives";
@@ -31,6 +33,8 @@ export function WaitlistForm({
         <Magnetic>
           <a
             href={signUpUrl}
+            data-umami-event="cta-click"
+            data-umami-event-source={source}
             className={`btn btn-primary ${size === "lg" ? "btn-lg" : "btn-md"} w-full sm:w-auto`}
           >
             {cta.label}
@@ -49,6 +53,7 @@ export function WaitlistForm({
     if (!EMAIL_RE.test(value)) {
       setState("error");
       setMessage(cta.errorEmail);
+      track("waitlist-error", { source, reason: "invalid-email" });
       return;
     }
 
@@ -57,7 +62,7 @@ export function WaitlistForm({
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: value, source }),
+        body: JSON.stringify({ email: value, source, attribution: readAttribution() }),
       });
       const data = (await res.json().catch(() => ({}))) as {
         ok?: boolean;
@@ -66,13 +71,16 @@ export function WaitlistForm({
 
       if (res.ok && data.ok) {
         setState("success");
+        track("waitlist-submitted", { source });
         return;
       }
       setState("error");
       setMessage(data.code === "duplicate" ? cta.errorDuplicate : cta.errorGeneric);
+      track("waitlist-error", { source, reason: data.code ?? String(res.status) });
     } catch {
       setState("error");
       setMessage(cta.errorGeneric);
+      track("waitlist-error", { source, reason: "network" });
     }
   }
 
@@ -189,18 +197,23 @@ export function CtaButton({
   label,
   className = "",
   onClick,
+  source = "unknown",
 }: {
   size?: "lg" | "md";
   variant?: "primary" | "ghost";
   label?: string;
   className?: string;
   onClick?: () => void;
+  /** Odakle je kliknuto — ista imena kao `waitlist.source`. */
+  source?: string;
 }) {
   const href = ctaMode === "signup" ? signUpUrl : "#pristup";
   return (
     <a
       href={href}
       onClick={onClick}
+      data-umami-event="cta-click"
+      data-umami-event-source={source}
       className={`btn ${variant === "primary" ? "btn-primary" : "btn-ghost"} ${
         size === "lg" ? "btn-lg" : "btn-md"
       } ${className}`}

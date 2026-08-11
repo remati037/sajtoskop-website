@@ -3,6 +3,7 @@ import { compare } from "@/lib/content";
 import { LogoMark } from "../logo";
 import { Container, Section, SectionHeader } from "../ui";
 import { Reveal } from "../motion-primitives";
+import { ViewTracker } from "../view-tracker";
 
 const MARK = {
   yes: { Icon: Check, color: "var(--accent-text)" },
@@ -22,6 +23,8 @@ export function Compare() {
           lede={compare.lede}
           max="max-w-[640px]"
         />
+
+        <ViewTracker event="compare-viewed" />
 
         <Reveal y={26} className="mt-12 sm:mt-16">
           {/* Telefon: svaki red tabele je kartica — bez horizontalnog skrola. */}

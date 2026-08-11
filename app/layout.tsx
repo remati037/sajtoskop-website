@@ -1,9 +1,15 @@
+import { AttributionCapture } from "@/components/attribution-capture";
 import { site } from "@/lib/site";
 import { themeScript } from "@/lib/theme-script";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
+
+// Umami — analitika bez kolačića. ID sajta je javan, stoji u HTML-u svake stranice.
+const UMAMI_SRC = "https://cloud.umami.is/script.js";
+const UMAMI_ID = "65a3d84a-ec72-46fa-b737-da1bd46be257";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -71,7 +77,15 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: themeScript }}
         />
       </head>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        {children}
+        <AttributionCapture />
+        <Script
+          src={UMAMI_SRC}
+          data-website-id={UMAMI_ID}
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
   );
 }

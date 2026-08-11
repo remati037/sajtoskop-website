@@ -1,5 +1,6 @@
 "use client";
 
+import { track } from "@/lib/analytics";
 import { faq } from "@/lib/content";
 import { site } from "@/lib/site";
 import { Plus } from "lucide-react";
@@ -41,7 +42,11 @@ export function Faq() {
                     <h3>
                       <button
                         type="button"
-                        onClick={() => setOpen(isOpen ? null : i)}
+                        onClick={() => {
+                          setOpen(isOpen ? null : i);
+                          // Samo otvaranje je signal — zatvaranje ne znači ništa.
+                          if (!isOpen) track("faq-opened", { question: item.q });
+                        }}
                         aria-expanded={isOpen}
                         aria-controls={`faq-panel-${i}`}
                         className="group flex w-full items-start justify-between gap-5 py-5 text-left"

@@ -138,9 +138,18 @@ export default function Page() {
 
       <h2>7. Kolačići i analitika</h2>
       <p>
-        Landing stranica ne postavlja marketinške kolačiće i ne koristi spoljne analitičke
-        alate. Jedina stvar koja se čuva u tvom pretraživaču je izbor teme (svetla ili tamna),
-        u lokalnom skladištu — to nije kolačić i ne napušta tvoj uređaj.
+        Landing stranica ne postavlja marketinške kolačiće. Jedina stvar koja se čuva u tvom
+        pretraživaču je izbor teme (svetla ili tamna), u lokalnom skladištu — to nije kolačić
+        i ne napušta tvoj uređaj.
+      </p>
+      <p>
+        Za posećenost koristim{" "}
+        <a href="https://umami.is" target="_blank" rel="noopener noreferrer">
+          Umami
+        </a>
+        . Umami ne postavlja kolačiće, ne pravi profil o tebi i ne prati te sa sajta na sajt.
+        Beleži se samo zbirna statistika: koja stranica je otvorena, odakle je posetilac
+        došao, tip uređaja i država. Ti podaci se ne mogu povezati sa konkretnom osobom.
       </p>
       <p>
         Aplikacija koristi kolačiće neophodne za prijavu i održavanje sesije. Bez njih prijava

@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Check, Loader2, Send } from "lucide-react";
+import { track } from "@/lib/analytics";
 
 type State = "idle" | "loading" | "success" | "error";
 
@@ -57,13 +58,17 @@ export function ContactForm() {
       if (res.ok) {
         setState("success");
         form.reset();
+        // Tema poruke, ne sadržaj — nikakav lični podatak ne ide u analitiku.
+        track("contact-submitted", { topic });
         return;
       }
       setState("error");
       setError("Nešto je puklo na mojoj strani. Piši mi direktno na mejl iz podnožja.");
+      track("contact-error", { reason: String(res.status) });
     } catch {
       setState("error");
       setError("Nešto je puklo na mojoj strani. Piši mi direktno na mejl iz podnožja.");
+      track("contact-error", { reason: "network" });
     }
   }
 

@@ -83,7 +83,7 @@ export function SiteHeader({ minimal = false }: { minimal?: boolean }) {
             <ThemeToggle />
             {/* Dok je meni otvoren, CTA iz trake se sklanja — isto dugme stoji na dnu panela. */}
             <div className={open ? "hidden md:block" : "hidden sm:block"}>
-              <CtaButton size="md" />
+              <CtaButton size="md" source="header" />
             </div>
             {!minimal && (
               <button
@@ -140,7 +140,12 @@ export function SiteHeader({ minimal = false }: { minimal?: boolean }) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.32, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
               >
-                <CtaButton size="lg" className="w-full" onClick={() => setOpen(false)} />
+                <CtaButton
+                  size="lg"
+                  className="w-full"
+                  source="mobile-menu"
+                  onClick={() => setOpen(false)}
+                />
                 <p className="mt-3 text-center text-[13px] leading-relaxed text-fg-faint">
                   {cta.sub}
                 </p>

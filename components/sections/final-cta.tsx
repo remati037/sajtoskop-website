@@ -1,6 +1,7 @@
 import { finalCta, proof } from "@/lib/content";
 import { Container } from "../ui";
 import { Reveal } from "../motion-primitives";
+import { ViewTracker } from "../view-tracker";
 import { WaitlistForm } from "../waitlist-form";
 
 export function FinalCta() {
@@ -14,6 +15,8 @@ export function FinalCta() {
       />
 
       <Container className="relative">
+        <ViewTracker event="final-cta-viewed" />
+
         <div className="mx-auto max-w-[720px] text-center">
           <Reveal y={14}>
             <div className="flex items-center justify-center gap-2.5">
