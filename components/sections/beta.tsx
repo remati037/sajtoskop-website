@@ -1,7 +1,7 @@
-import { Check } from "lucide-react";
 import { beta } from "@/lib/content";
-import { Container, Section } from "../ui";
+import { Check } from "lucide-react";
 import { Reveal } from "../motion-primitives";
+import { Container, Section } from "../ui";
 import { WaitlistForm } from "../waitlist-form";
 
 export function Beta() {
@@ -48,7 +48,7 @@ export function Beta() {
               </div>
 
               <div className="lg:pl-10 lg:border-l lg:border-border">
-                <span className="eyebrow">Šta ulazi u besplatnu betu</span>
+                <span className="eyebrow">Šta ulazi u besplatnu Beta fazu</span>
                 <ul className="mt-5 flex flex-col gap-3">
                   {beta.includes.map((item) => (
                     <li key={item} className="flex items-start gap-2.5">

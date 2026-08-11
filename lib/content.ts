@@ -24,15 +24,15 @@ export const nav = [
 -------------------------------------------------------------------------- */
 
 export const cta = {
-  label: "Uđi u besplatnu betu",
-  labelShort: "Uđi u betu",
-  sub: "Bez kartice. 30 kredita mesečno. Beta je besplatna dok traje.",
-  formPlaceholder: "tvoj@mejl.com",
-  formButton: "Uđi u betu",
-  formNote: "Javljam se lično, ne šaljem newsletter.",
-  successTitle: "Upisan si.",
+  label: "Isprobaj besplatno",
+  labelShort: "Isprobaj besplatno",
+  sub: "Bez kartice. 30 kredita mesečno. Beta verzija je još uvek besplatna.",
+  formPlaceholder: "example@email.com",
+  formButton: "Isprobaj besplatno",
+  formNote: "Javljam ti se lično, ne šaljem automatske mejlove.",
+  successTitle: "Uspešno si se prijavio na listu čekanja.",
   successBody:
-    "Šaljem ti pristup lično, jednu po jednu poruku. Proveri i spam folder — mejl stiže sa adrese koju verovatno nemaš u kontaktima.",
+    "Šaljem ti pristup lično. Proveri i spam folder, jer mejl stiže sa adrese koju verovatno nemaš u kontaktima.",
   errorGeneric: "Nešto je puklo na mojoj strani. Probaj ponovo za koji trenutak.",
   errorEmail: "Ovo ne liči na ispravnu mejl adresu.",
   errorDuplicate: "Ova adresa je već na listi. Javljam se uskoro.",
@@ -45,15 +45,15 @@ export const cta = {
 -------------------------------------------------------------------------- */
 
 export const hero = {
-  badge: "Besplatna beta · Srbija",
-  scanLabel: "SKEN · ŠABAC · PVC STOLARIJA",
+  badge: "Isprobaj besplatno · Srbija",
+  scanLabel: "SCAN · ŠABAC · PVC STOLARIJA",
   titleLine1: "U Šapcu 58% PVC stolarija",
   titleLine2: "nema sajt koji radi.",
   titleAccent: "58%",
-  lede: "Sajtoskop zna njihova imena, telefone i tačan problem. Izabereš grad i nišu, alat skenira Google Maps, oceni svaki sajt od 0 do 100 i da ti kontakt, screenshot i listu konkretnih problema — spremno za slanje.",
+  lede: "Sajtoskop zna njihova imena, telefone i tačan problem. Izabereš grad i nišu, alat skenira Google Maps, oceni svaki sajt od 0 do 100 i da ti kontakt, screenshot i listu konkretnih problema. Tvoje je samo da pošalješ pripremljenu poruku.",
   trust: [
     "Podaci sa Google Maps-a",
-    "Zvanični Places API",
+    // "Zvanični Places API",
     "Napravljeno za Srbiju",
   ],
 } as const;
@@ -77,7 +77,7 @@ export const bandLabel: Record<Band, string> = {
 export const scanDemo = {
   query: { grad: "Šabac", nisa: "PVC stolarija" },
   statusScanning: "Skeniram Google Maps",
-  statusDone: "Sken završen",
+  statusDone: "Skeniranje završeno",
   legend: "Zeleno = firma uopšte nema sajt. To je najbolji lead.",
   columns: ["Firma", "Ugly Score", "Problem", ""] as const,
   rows: [
@@ -111,14 +111,14 @@ export const problem = {
     {
       tag: "Poruka",
       title: "Ne znaš šta da napišeš",
-      body: "Kad konačno nađeš nekoga, poruka ispadne generična jer ne znaš šta tačno ne valja na njegovom sajtu. Generična poruka je spam. Spam se ne otvara.",
+      body: "Kad konačno nađeš nekoga, poruka ispadne generička jer ne znaš šta tačno ne valja na njegovom sajtu. Generička poruka je spam, a spam se ne otvara.",
       stat: "0",
       statLabel: "odgovora na „Zdravo, bavim se izradom sajtova“",
     },
     {
       tag: "Alati",
       title: "Zapadni alati ne vide Srbiju",
-      body: "Apollo, Clay i slični traže firme sa „lošim sajtom“. Kod nas je najbolji lead firma koja sajt uopšte nema — a to nijedan strani alat ne ume da filtrira, jer u njihovim bazama takvih firmi skoro i nema.",
+      body: "Apollo, Clay i slični traže firme sa „lošim sajtom“. Kod nas je najbolji lead firma koja sajt uopšte nema, a to nijedan strani alat ne ume da filtrira, jer u njihovim bazama takvih firmi skoro i nema.",
       stat: "≈0",
       statLabel: "srpskih mikro-firmi u njihovim bazama",
     },
@@ -142,7 +142,7 @@ export const proof = {
     { nisa: "Autoplac", grad: "Čačak", pct: 48 },
   ],
   footnote:
-    "Skenirano preko zvaničnog Google Places API-ja. Brojke se menjaju kako se baza osvežava u 30-dnevnom ciklusu.",
+    "Skenirano preko zvaničnog Google Places API-ja.",
 } as const;
 
 /* --------------------------------------------------------------------------
@@ -163,14 +163,14 @@ export const how = {
     {
       n: "02",
       title: "Sajtoskop skenira i oceni",
-      body: "Povlači firme sa Google Maps-a, otvara svaki sajt i daje mu Ugly Score od 0 do 100, sa listom konkretnih problema: mrtav domen, nije mobilni, sporo se učitava, nema kontakt.",
+      body: "Povlači firme sa Google Maps-a, otvara svaki sajt i daje mu Ugly Score od 0 do 100, sa listom konkretnih problema: mrtav domen, nije optimizovan za mobilni, sporo se učitava, nema kontakt.",
       detail: "Firme koje sajt uopšte nemaju idu na vrh liste, obeležene zeleno.",
     },
     {
       n: "03",
       title: "Otključaš i pišeš",
       body: "Jedan kredit otvara telefon, mejl, screenshot sajta i predlog poruke na srpskom, prilagođen kanalu. Kopiraš i šalješ. Ceo pipeline pratiš u kanban tabli.",
-      detail: "Isti prospekt nikad ne plaćaš dvaput — otključan je zauvek tvoj.",
+      detail: "Isti lead nikad ne plaćaš dvaput. Otključan jednom i zauvek je tvoj.",
     },
   ],
 } as const;
@@ -181,7 +181,7 @@ export const how = {
 
 export const anatomy = {
   eyebrow: "Jedan kredit",
-  title: "Šta tačno dobiješ kad otključaš prospekta.",
+  title: "Šta tačno dobiješ kad otključaš lead.",
   lede: "Ne dobijaš red u tabeli. Dobijaš sve što ti treba da pošalješ poruku koja ima razlog da postoji.",
   business: {
     name: "PVC Mont Šabac",
@@ -199,19 +199,19 @@ export const anatomy = {
     { title: "Mejl adresa", body: "Kad postoji na sajtu ili u Maps profilu, izvučena i proverena." },
     { title: "Screenshot sajta", body: "Vidiš svojim očima kako izgleda pre nego što napišeš rečenicu o tome." },
     { title: "Ugly Score i bend", body: "Ocena od 0 do 100 i bend: Solidan, Osrednji, Ružan ili Katastrofa." },
-    { title: "Lista konkretnih problema", body: "„Nije prilagođen mobilnom“, „Učitava se 8,4 sekunde“, „Nema kontakt formu“." },
+    { title: "Lista konkretnih problema", body: "„Nije prilagođen mobilnom“, „Učitava se 8 sekundi“, „Nema kontakt formu“." },
     { title: "Predlog poruke", body: "Na srpskom, po kanalu, sa konkretnim problemom u prvoj rečenici." },
     { title: "Status u pipeline-u", body: "Nekontaktiran, Kontaktiran, Odgovorio, Potpisan, Nezainteresovan." },
   ],
   issues: [
-    "Domen ne odgovara — greška 522",
+    "Domen ne odgovara - greška 522",
     "Nije prilagođen mobilnom telefonu",
     "Nema kontakt formu ni broj telefona",
     "Poslednja izmena sadržaja: 2019.",
   ],
   messageLabel: "Predlog poruke · Viber",
   message:
-    "Dobar dan, video sam da PVC Mont ima odlične ocene na Google-u, ali da firma trenutno nema sajt. Ljudi koji vas nađu na Maps-u nemaju gde da vide radove i cene. Napravio bih vam jednostavan sajt sa galerijom i formom za upit — mogu da pošaljem predlog, bez obaveze.",
+    "Dobar dan, video sam da imate odlične ocene na Google-u, ali da firma trenutno nema sajt. Ljudi koji vas nađu na Google Maps-u nemaju gde da vide radove i cene. Napravio bih vam jednostavan sajt sa galerijom i formom za upit. Mogu da Vam pošaljem predlog, bez obaveze.",
 } as const;
 
 /* --------------------------------------------------------------------------
@@ -220,7 +220,7 @@ export const anatomy = {
 
 export const local = {
   eyebrow: "Zašto baš ovaj alat",
-  title: "Napravljen za Srbiju, ne preveden na srpski.",
+  title: "Napravljen za Srbiju, a ne preveden na srpski.",
   lede: "Ovo su četiri stvari koje strani alati ne rade, a bez kojih na našem tržištu nemaš upotrebljivu listu.",
   items: [
     {
@@ -229,7 +229,7 @@ export const local = {
     },
     {
       title: "Tip telefona iz prefiksa",
-      body: "06x je mobilni — ide Viber. Fiksni prefiks znači poziv u radno vreme. Alat ti kaže koji je koji, pa ne trošiš pokušaj na pogrešan kanal.",
+      body: "06x je mobilni, ide Viber. Fiksni prefiks znači poziv u radno vreme. Alat ti kaže koji je koji, pa ne trošiš pokušaj na pogrešan kanal.",
     },
     {
       title: "Poruke na srpskom, po kanalima",
@@ -249,7 +249,7 @@ export const local = {
 export const compare = {
   eyebrow: "Alternative",
   title: "Tri načina da nađeš iste firme.",
-  lede: "Dva od njih si već probao.",
+  lede: "Dva od njih si verovatno već probao.",
   columns: ["Ručno guglanje", "Zapadni lead alati", "Sajtoskop"] as const,
   highlight: 2,
   rows: [
@@ -265,12 +265,12 @@ export const compare = {
     },
     {
       label: "Ocena sajta i konkretni problemi",
-      values: ["Procenjuješ napamet", "Retko, površno", "Ugly Score 0–100 + lista"],
+      values: ["Procenjuješ napamet", "Retko, površno", "Ugly Score 0-100 + lista"],
       marks: ["no", "warn", "yes"],
     },
     {
       label: "Telefon sa tipom (Viber ili poziv)",
-      values: ["Sam gataš iz prefiksa", "Ne", "Automatski"],
+      values: ["Sam zaključuješ iz prefiksa", "Ne", "Automatski"],
       marks: ["warn", "no", "yes"],
     },
     {
@@ -285,7 +285,7 @@ export const compare = {
     },
     {
       label: "Mesečni trošak",
-      values: ["Tvoje neplaćeno vreme", "60–300 €", "0 € tokom bete"],
+      values: ["Tvoje neplaćeno vreme", "60–300 €", "0€ tokom Beta faze"],
       marks: ["warn", "no", "yes"],
     },
   ],
@@ -298,22 +298,22 @@ export const compare = {
 export const audience = {
   eyebrow: "Za koga je",
   title: "Ako ti prihod zavisi od toga koga si kontaktirao ove nedelje.",
-  lede: "Tri profila koji od prvog dana imaju konkretnu korist. Ako se ne prepoznaješ ni u jednom — alat verovatno nije za tebe, i to je u redu.",
+  lede: "Tri profila koji od prvog dana imaju konkretnu korist. Ako se ne prepoznaješ ni u jednom, alat verovatno nije za tebe, i to je u redu.",
   items: [
     {
-      role: "Frilenser web dizajner",
+      role: "Freelencer web dizajner",
       pain: "Radiš preko preporuke i onda dođe mesec bez preporuke.",
-      win: "Skeniraš tri niše u svom gradu i imaš dvadeset firmi bez sajta koje niko još nije zvao. Prva poruka nije hladna — ima screenshot i razlog.",
+      win: "Skeniraš tri niše u svom gradu i imaš dvadeset firmi bez sajta koje niko još nije zvao. Prva poruka nije hladna, ima screenshot i razlog.",
     },
     {
-      role: "Mala agencija (2–5 ljudi)",
+      role: "Mala agencija (2-5 ljudi)",
       pain: "Neko mora da puni pipeline, a svi su na projektima.",
       win: "Jedna osoba za jedno popodne napuni kanban za ceo mesec. Statusi su zajednički, ne dupliraš kontakt koji je kolega već poslao.",
     },
     {
       role: "Marketar i prodavac",
       pain: "Baze koje kupuješ su stare, a odziv je ispod jedan posto.",
-      win: "Podatak je svež iz Google-a, sa razlogom za kontakt koji je vidljiv i firmi. Poruka koja počinje konkretnim problemom se otvara.",
+      win: "Podatak je svež iz Google-a, sa razlogom za kontakt koji je vidljiv i firmi. Dobijaš poruku koja počinje konkretnim problemom.",
     },
   ],
 } as const;
@@ -324,10 +324,10 @@ export const audience = {
 
 export const beta = {
   eyebrow: "Ponuda, bez sitnih slova",
-  title: "Beta je besplatna dok traje.",
+  title: "Beta faza je besplatna.",
   lede: "30 kredita mesečno. Bez kartice, bez obaveze, bez ugovora i bez broja mesta koji otkucava.",
   includes: [
-    "30 kredita mesečno — jedan kredit otključava jednog prospekta",
+    "30 kredita mesečno - jedan kredit otključava jedan lead",
     "Neograničeno skeniranje gradova i niša",
     "Ugly Score, screenshot i lista problema za svaki otključan sajt",
     "Predlozi poruka na srpskom, po kanalima",
@@ -335,8 +335,8 @@ export const beta = {
     "Izvoz otključanih prospekata u CSV",
   ],
   promise: {
-    title: "Šta se dešava kad beta prestane",
-    body: "Kad uvedem planove, javljam unapred — mejlom, a ne tako što ti se jednog jutra pojavi paywall. Ljudi iz bete dobijaju cenu koja se ne ponavlja. Ako ti tada ne odgovara, izvezeš svoje prospekte i odeš bez pitanja.",
+    title: "Šta se dešava kada izađemo iz Beta faze?",
+    body: "Kad uvedem planove, javljam unapred mejlom, a ne tako što ti se jednog jutra pojavi paywall. Ljudi iz Beta faze dobijaju cenu koja se ne ponavlja. Ako ti tada ne odgovara, izvezeš svoje prospekte (leadove) i odeš bez pitanja.",
   },
   finePrint:
     "Beta znači da se alat menja, da povremeno nešto ne radi i da nema garancije dostupnosti. Zauzvrat ne plaćaš ništa i tvoja reč utiče na to šta se pravi sledeće.",
@@ -348,31 +348,31 @@ export const beta = {
 
 export const faq = {
   eyebrow: "Pitanja",
-  title: "Ono što bi i ja pitao.",
+  title: "Ono što bih i ja pitao.",
   items: [
     {
       q: "Da li je ovo legalno?",
-      a: "Jeste. Podaci su javni, dolaze sa Google Maps-a preko zvaničnog Places API-ja, uz poštovanje njihovih uslova korišćenja. Sajtovi se čitaju uz poštovanje robots.txt fajla, sa identifikujućim User-Agent-om i najviše jednim zahtevom u sekundi po domenu. Za način na koji šalješ poruke odgovoran si ti — u alatu stoji kratko uputstvo i šablon za opt-out, iskoristi ih.",
+      a: "Jeste. Podaci su javni, dolaze sa Google Maps-a preko zvaničnog Places API-ja, uz poštovanje njihovih uslova korišćenja. Sajtovi se čitaju uz poštovanje robots.txt fajla, sa identifikujućim User-Agent-om i najviše jednim zahtevom u sekundi po domenu. Za način na koji šalješ poruke odgovoran si ti. U alatu stoji kratko uputstvo i šablon za opt-out, iskoristi ih.",
     },
     {
       q: "Radi li za Hrvatsku i Bosnu?",
-      a: "Ne još. Srbija prvo. Baza je od prvog dana pripremljena za više zemalja, ali dok Srbija ne radi kako treba, ne širim se. Ako ti treba region, javi mi — to menja redosled.",
+      a: "Ne još. Trenutno se fokusiramo na Srbiju. Baza je od prvog dana pripremljena za više zemalja, ali dok Srbija ne radi kako treba, ne širimo se na ostale zemlje. Ako ti treba neki drugi region, javi mi, to menja redosled funkcionalnosti.",
     },
     {
       q: "Šta ako podaci nisu tačni?",
-      a: "Podaci sa Google-a se osvežavaju u 30-dnevnom ciklusu, tako da nikad ne dobiješ podatak stariji od trideset dana. Ocena sajta se radi u trenutku kad otključaš prospekta, ne unapred — znači vidiš kako sajt izgleda danas, a ne kako je izgledao kad sam ja skenirao nišu.",
+      a: "Podaci sa Google-a se osvežavaju u 30-dnevnom ciklusu, tako da nikad ne dobiješ podatak stariji od trideset dana. Ocena sajta se radi u trenutku kad otključaš lead, ne unapred. Znači vidiš kako sajt izgleda danas, a ne kako je izgledao kad sam ja skenirao nišu.",
     },
     {
-      q: "Koliko traje beta?",
-      a: "Dok ne skupim dovoljno povratnih informacija da znam šta da naplatim i za koliko. Realno mesec do dva. Javljam unapred pre bilo kakve promene — nema tihog gašenja i nema iznenadnog paywalla.",
+      q: "Koliko traje Beta faza?",
+      a: "Dok ne skupim dovoljno povratnih informacija da znam šta da naplatim i za koliko. Realno mesec do dva. Javljam unapred pre bilo kakve promene. Nema tihog gašenja i nema iznenadnog paywalla.",
     },
     {
-      q: "Ko si ti?",
-      a: "Marko Milenković, radim pod imenom Remati. Pravim sajtove i alate, i Sajtoskop sam napravio zato što mi je trebao za sopstveni pipeline — prvo je bio skripta u terminalu za mene, pa sam shvatio da isti problem ima svako ko prodaje izradu sajtova u Srbiji. Koristim ga sam, svaki dan. Nisam tim, nisam startap i nemam investitore, pa ti na mejl odgovaram lično.",
+      q: "Ko stoji iza Sajtoskopa?",
+      a: "Marko Milenković, radim pod imenom Remati. Pravim sajtove i alate, i Sajtoskop sam napravio zato što mi je trebao za sopstveni pipeline. Prvo je bio skripta u terminalu za mene, pa sam shvatio da isti problem ima svako ko prodaje izradu sajtova u Srbiji. Koristim ga sam, svaki dan. Nisam tim, nisam startap i nemam investitore, pa ti na mejl odgovaram lično.",
     },
     {
-      q: "Šta se dešava sa mojim prospektima ako odustanem?",
-      a: "Izvezeš ih u CSV i to je to. Ne držim ti podatke kao talca. Nalog i sve što je uz njega brišem na zahtev, i ta procedura stvarno postoji, nije samo rečenica u politici privatnosti.",
+      q: "Šta se dešava sa mojim prospektima (leadovima) ako odustanem?",
+      a: "Izvezeš ih u CSV i to je to. Nalog i sve što je uz njega brišem na zahtev, i ta procedura stvarno postoji, nije samo rečenica u politici privatnosti.",
     },
     {
       q: "Da li ću dobiti iste firme kao svi ostali korisnici?",
@@ -389,7 +389,7 @@ export const finalCta = {
   eyebrow: "Poslednja stvar",
   title: "Izaberi grad. Vidi ko nema sajt.",
   titleAccent: "Danas.",
-  lede: "Za pet minuta imaš listu firmi u svom gradu koje plaćaju Google oglase, imaju recenzije i posao — a nemaju gde da pošalju čoveka koji hoće da kupi.",
+  lede: "Za pet minuta imaš listu firmi u svom gradu koje plaćaju Google oglase, imaju recenzije i posao, a nemaju gde da pošalju čoveka koji hoće da kupi.",
 } as const;
 
 /* --------------------------------------------------------------------------
@@ -398,7 +398,7 @@ export const finalCta = {
 
 export const footer = {
   tagline:
-    "Lead-gen alat za web dizajnere, frilensere i agencije u Srbiji. Nađi firme sa lošim ili nepostojećim sajtovima i pošalji poruku koja ima razlog.",
+    "Lead-gen alat za web dizajnere, freelencere i agencije u Srbiji. Nađi firme sa lošim ili nepostojećim sajtovima i pošalji im poruku danas.",
   columns: [
     {
       title: "Proizvod",

@@ -116,15 +116,17 @@ export function WaitlistForm({
             initial={false}
             className={`w-full max-w-[520px] ${centered ? "text-center" : ""}`}
           >
-            <div
-              className="group flex w-full flex-col gap-2 rounded-[14px] border border-border bg-bg-elev p-1.5 shadow-[var(--shadow-card)] transition-colors duration-200 focus-within:border-[var(--border-accent)] sm:flex-row sm:items-center"
-              style={{ boxShadow: "var(--shadow-card)" }}
-            >
+            {/* Na telefonu: input sa sopstvenim okvirom + dugme pune širine ispod.
+                Od sm naviše: jedna „pilula" u kojoj input nema svoj okvir. */}
+            <div className="group flex w-full flex-col gap-2.5 sm:flex-row sm:items-center sm:gap-2 sm:rounded-[14px] sm:border sm:border-border sm:bg-bg-elev sm:p-1.5 sm:shadow-[var(--shadow-card)] sm:transition-colors sm:duration-200 sm:focus-within:border-[var(--border-accent)]">
               <label htmlFor={`wl-${source}`} className="sr-only">
                 Mejl adresa
               </label>
               <input
                 id={`wl-${source}`}
+                // Password manageri i autofill ekstenzije ubace svoje data-* atribute
+                // u polje pre hidracije; bez ovoga React regeneriše celo stablo.
+                suppressHydrationWarning
                 type="email"
                 inputMode="email"
                 autoComplete="email"
@@ -135,16 +137,17 @@ export function WaitlistForm({
                   if (state === "error") setState("idle");
                 }}
                 aria-invalid={state === "error"}
-                className={`min-w-0 flex-1 bg-transparent px-3.5 text-[15px] text-fg outline-none placeholder:text-fg-faint ${
-                  size === "lg" ? "h-12" : "h-10"
+                // text-[16px] na telefonu — ispod 16px iOS Safari zumira pri fokusu.
+                className={`h-12 w-full min-w-0 rounded-[12px] border border-border bg-bg-elev px-4 text-[16px] text-fg shadow-[var(--shadow-card)] outline-none transition-colors duration-200 placeholder:text-fg-faint focus:border-[var(--border-accent)] sm:flex-1 sm:rounded-none sm:border-0 sm:bg-transparent sm:px-3.5 sm:text-[15px] sm:shadow-none ${
+                  size === "lg" ? "sm:h-12" : "sm:h-10"
                 }`}
               />
               <button
                 type="submit"
                 disabled={state === "loading"}
-                className={`btn btn-primary shrink-0 ${
-                  size === "lg" ? "h-12 px-5 text-[15px]" : "h-10 px-4 text-[14px]"
-                } disabled:opacity-70`}
+                className={`btn btn-primary h-12 w-full shrink-0 px-5 text-[15px] disabled:opacity-70 sm:w-auto ${
+                  size === "lg" ? "sm:h-12 sm:px-5" : "sm:h-10 sm:px-4 sm:text-[14px]"
+                }`}
               >
                 {state === "loading" ? (
                   <Loader2 size={16} className="animate-spin" strokeWidth={2.4} />
@@ -185,16 +188,19 @@ export function CtaButton({
   variant = "primary",
   label,
   className = "",
+  onClick,
 }: {
   size?: "lg" | "md";
   variant?: "primary" | "ghost";
   label?: string;
   className?: string;
+  onClick?: () => void;
 }) {
   const href = ctaMode === "signup" ? signUpUrl : "#pristup";
   return (
     <a
       href={href}
+      onClick={onClick}
       className={`btn ${variant === "primary" ? "btn-primary" : "btn-ghost"} ${
         size === "lg" ? "btn-lg" : "btn-md"
       } ${className}`}

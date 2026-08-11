@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
-import { Plus } from "lucide-react";
 import { faq } from "@/lib/content";
 import { site } from "@/lib/site";
-import { Container, Section, SectionHeader } from "../ui";
+import { Plus } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import { useState } from "react";
 import { Reveal } from "../motion-primitives";
+import { Container, Section, SectionHeader } from "../ui";
 
 export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
@@ -26,8 +26,8 @@ export function Faq() {
                   style={{ color: "var(--accent-text)" }}
                 >
                   Piši mi direktno
-                </a>{" "}
-                — odgovaram lično, obično isti dan.
+                </a>
+                , odgovaram lično, obično isti dan.
               </p>
             </Reveal>
           </div>

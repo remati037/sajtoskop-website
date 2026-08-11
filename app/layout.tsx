@@ -1,18 +1,18 @@
-import type { Metadata, Viewport } from "next";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
-import { themeScript } from "@/lib/theme-script";
 import { site } from "@/lib/site";
+import { themeScript } from "@/lib/theme-script";
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Sajtoskop — nađi firme u Srbiji koje nemaju sajt",
+    default: "Sajtoskop | Nađi firme u Srbiji koje nemaju sajt",
     template: "%s · Sajtoskop",
   },
   description:
-    "Izabereš grad i nišu. Sajtoskop skenira Google Maps, oceni svaki sajt od 0 do 100 i da ti kontakt, screenshot i listu konkretnih problema. Besplatna beta.",
+    "Izabereš grad i nišu. Sajtoskop skenira Google Maps, oceni svaki sajt od 0 do 100 i da ti kontakt, screenshot i listu konkretnih problema. Besplatno u Beta fazi.",
   keywords: [
     "lead generation Srbija",
     "firme bez sajta",
@@ -30,13 +30,13 @@ export const metadata: Metadata = {
     locale: "sr_RS",
     url: site.url,
     siteName: site.name,
-    title: "Sajtoskop — nađi firme u Srbiji koje nemaju sajt",
+    title: "Sajtoskop | Nađi firme u Srbiji koje nemaju sajt",
     description:
       "U Šapcu 58% PVC stolarija nema sajt koji radi. Sajtoskop zna njihova imena, telefone i tačan problem.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sajtoskop — nađi firme u Srbiji koje nemaju sajt",
+    title: "Sajtoskop | Nađi firme u Srbiji koje nemaju sajt",
     description:
       "U Šapcu 58% PVC stolarija nema sajt koji radi. Sajtoskop zna njihova imena, telefone i tačan problem.",
   },
@@ -64,9 +64,13 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script
+          id="sajtoskop-theme"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: themeScript }}
+        />
       </head>
-      <body>{children}</body>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

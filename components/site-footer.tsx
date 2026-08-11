@@ -1,8 +1,8 @@
-import Link from "next/link";
-import { Mail } from "lucide-react";
-import { InstagramIcon, LinkedinIcon } from "./brand-icons";
 import { footer } from "@/lib/content";
 import { site } from "@/lib/site";
+import { Mail } from "lucide-react";
+import Link from "next/link";
+import { InstagramIcon, LinkedinIcon } from "./brand-icons";
 import { Logo } from "./logo";
 import { Container } from "./ui";
 
@@ -78,7 +78,7 @@ export function SiteFooter() {
 
         <div className="flex flex-col gap-3 border-t border-border py-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[12.5px] text-fg-faint">
-            © {years} {site.name} · {site.author} / {site.company}. Sva prava zadržana.
+            © {years} {site.name}. Sva prava zadržana.
           </p>
           <p className="max-w-[420px] text-[11.5px] leading-relaxed text-fg-faint">
             {footer.legalNote}

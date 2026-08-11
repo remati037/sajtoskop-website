@@ -103,6 +103,7 @@ export function ContactForm() {
               <input
                 id="name"
                 name="name"
+                suppressHydrationWarning
                 autoComplete="name"
                 placeholder="Marko"
                 className="h-11 w-full rounded-[10px] border border-border bg-bg px-3.5 text-[14.5px] text-fg outline-none transition-colors placeholder:text-fg-faint focus:border-[var(--border-accent)]"
@@ -112,6 +113,7 @@ export function ContactForm() {
               <input
                 id="email"
                 name="email"
+                suppressHydrationWarning
                 type="email"
                 inputMode="email"
                 autoComplete="email"
@@ -125,6 +127,7 @@ export function ContactForm() {
             <select
               id="topic"
               name="topic"
+              suppressHydrationWarning
               defaultValue={TOPICS[0]}
               className="h-11 w-full appearance-none rounded-[10px] border border-border bg-bg px-3.5 text-[14.5px] text-fg outline-none transition-colors focus:border-[var(--border-accent)]"
             >
@@ -140,6 +143,7 @@ export function ContactForm() {
             <textarea
               id="message"
               name="message"
+              suppressHydrationWarning
               rows={5}
               placeholder="Piši slobodno."
               className="w-full resize-y rounded-[10px] border border-border bg-bg p-3.5 text-[14.5px] leading-relaxed text-fg outline-none transition-colors placeholder:text-fg-faint focus:border-[var(--border-accent)]"
@@ -149,7 +153,13 @@ export function ContactForm() {
           {/* honeypot — ljudi ga ne vide, botovi ga popune */}
           <div aria-hidden className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
             <label htmlFor="company">Firma</label>
-            <input id="company" name="company" tabIndex={-1} autoComplete="off" />
+            <input
+              id="company"
+              name="company"
+              tabIndex={-1}
+              autoComplete="off"
+              suppressHydrationWarning
+            />
           </div>
 
           {state === "error" && (
