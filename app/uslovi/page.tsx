@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { LegalShell } from "@/components/legal-shell";
+import { trial } from "@/lib/content";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Uslovi korišćenja",
   description:
-    "Uslovi korišćenja Sajtoskopa — pravila pristupa, zabrane, odgovornost korisnika i beta status usluge.",
+    "Uslovi korišćenja Sajtoskopa — pravila pristupa, pretplata i naplata, zabrane i odgovornost korisnika.",
   robots: { index: true, follow: true },
 };
 
@@ -35,23 +36,53 @@ export default function Page() {
         informacijom da uradiš donosiš ti.
       </p>
 
-      <h2>3. Beta status</h2>
+      <h2>3. Pretplata, probni period i naplata</h2>
       <p>
-        Usluga je trenutno u besplatnoj beta fazi. To konkretno znači:
+        Sajtoskop se koristi uz pretplatu. Planovi, cene i mesečni limiti navedeni su na{" "}
+        <a href="/#cene">stranici sa cenama</a> i čine sastavni deo ovih uslova.
       </p>
       <ul>
-        <li>Funkcije se menjaju, dodaju i uklanjaju bez prethodne najave.</li>
         <li>
-          Nema garancije dostupnosti, tačnosti podataka niti bilo kakvog nivoa usluge (SLA).
+          <strong>Probni period traje {trial.days} dana</strong> i uz njega dobijaš{" "}
+          {trial.credits} bonus kredita. Podatke o kartici unosiš pri registraciji, ali ti se
+          tokom probnog perioda ništa ne naplaćuje.
         </li>
         <li>
-          Usluga može biti privremeno nedostupna ili trajno prekinuta. O trajnom prekidu ili
-          uvođenju naplate obaveštavam te unapred, mejlom na adresu sa kojom si registrovan.
+          <strong>Prva naplata je prvog dana posle isteka probnog perioda</strong>, u iznosu
+          izabranog plana. Ako otkažeš pretplatu pre isteka probe, naplate nema.
         </li>
         <li>
-          Beta korisnici ne plaćaju ništa i nisu u obavezi da išta plate kada se uvedu planovi.
+          <strong>Pretplata se obnavlja automatski</strong> — mesečno ili godišnje, u zavisnosti
+          od izabranog ciklusa — dok je ne otkažeš. Otkazivanje je dostupno u svakom trenutku
+          kroz podešavanja naloga.
+        </li>
+        <li>
+          Posle otkazivanja pristup ostaje aktivan do kraja već plaćenog perioda. Iznos za
+          započeti period se ne vraća srazmerno, niti nudim povraćaj novca za neiskorišćene
+          kredite.
+        </li>
+        <li>
+          Plan možeš da promeniš u svakom trenutku. Razlika u ceni obračunava se od trenutka
+          promene.
+        </li>
+        <li>
+          Cene su iskazane u evrima i konačne su — to je iznos koji se naplaćuje. Naplatu
+          obrađuje Stripe; podatke o kartici ne primam niti čuvam.
+        </li>
+        <li>
+          <strong>O promeni cene obaveštavam te mejlom najmanje trideset dana unapred.</strong>{" "}
+          Nova cena važi tek od narednog ciklusa i do tada možeš da otkažeš bez posledica.
+        </li>
+        <li>
+          Ako naplata ne prođe, pristup se privremeno pauzira dok se plaćanje ne izvrši. Nalog
+          i tvoji otključani prospekti ostaju sačuvani.
         </li>
       </ul>
+      <p>
+        Usluga se aktivno razvija: funkcije se dodaju i menjaju, i ne garantujem određeni nivo
+        dostupnosti (SLA). O trajnom prekidu usluge obaveštavam te unapred, mejlom na adresu sa
+        kojom si registrovan, i u tom slučaju ne naplaćujem naredni ciklus.
+      </p>
 
       <h2>4. Nalog</h2>
       <ul>
@@ -89,8 +120,9 @@ export default function Page() {
           direktno ili preko trećeg lica.
         </li>
         <li>
-          Zaobilaženje ograničenja kredita, otvaranje više naloga radi dobijanja dodatnih
-          besplatnih kredita, i svaki drugi vid zloupotrebe sistema.
+          Zaobilaženje ograničenja kredita ili dnevnih limita plana, otvaranje više naloga radi
+          ponovnog korišćenja probnog perioda ili bonus kredita, i svaki drugi vid zloupotrebe
+          sistema.
         </li>
         <li>
           Radnje koje ugrožavaju stabilnost, bezbednost ili integritet usluge i njene
@@ -137,8 +169,8 @@ export default function Page() {
           jednom otključan, ostaje otključan za tvoj nalog.
         </li>
         <li>
-          Krediti u beta fazi nemaju novčanu vrednost, ne mogu se preneti na drugi nalog i ne
-          isplaćuju se.
+          Krediti su interna jedinica korišćenja usluge. Nemaju novčanu vrednost, ne mogu se
+          preneti na drugi nalog, ne prodaju se odvojeno od pretplate i ne isplaćuju se u novcu.
         </li>
         <li>
           Neiskorišćeni mesečni krediti se ne prenose u naredni mesec, osim ako izričito ne

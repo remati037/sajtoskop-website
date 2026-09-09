@@ -18,15 +18,17 @@ export const site = {
 /**
  * Prekidač za CTA.
  *
- *   NEXT_PUBLIC_CTA_MODE=waitlist  → sva CTA dugmad otvaraju waitlist formu (default)
- *   NEXT_PUBLIC_CTA_MODE=signup    → sva CTA dugmad vode na registraciju u aplikaciji
+ *   NEXT_PUBLIC_CTA_MODE=signup    → sva CTA dugmad vode na registraciju (default)
+ *   NEXT_PUBLIC_CTA_MODE=waitlist  → sva CTA dugmad otvaraju formu za listu čekanja
  *
- * Kad F4 bude gotov, promeniš jednu env varijablu i ceo landing se prebaci.
+ * Otkad landing ima cenovnik, podrazumevano je `signup`. Ako aplikacija još
+ * nije puštena, postavi NEXT_PUBLIC_CTA_MODE=waitlist i dugmad se vraćaju na
+ * formu — kopi tada obećava nešto što ne postoji, pa ne ostavljaj dugo tako.
  */
 export type CtaMode = "waitlist" | "signup";
 
 export const ctaMode: CtaMode =
-  process.env.NEXT_PUBLIC_CTA_MODE === "signup" ? "signup" : "waitlist";
+  process.env.NEXT_PUBLIC_CTA_MODE === "waitlist" ? "waitlist" : "signup";
 
 export const appUrl =
   process.env.NEXT_PUBLIC_APP_URL ?? "https://app.sajtoskop.com";

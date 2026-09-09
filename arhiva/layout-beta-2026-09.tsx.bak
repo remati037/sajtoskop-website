@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: "%s · Sajtoskop",
   },
   description:
-    "Prestani da guglaš klijente. Izabereš grad i nišu, Sajtoskop skenira Google Maps, oceni svaki sajt od 0 do 100 i da ti kontakt, screenshot i gotovu poruku. 7 dana besplatno, planovi od 29 € mesečno.",
+    "Izabereš grad i nišu. Sajtoskop skenira Google Maps, oceni svaki sajt od 0 do 100 i da ti kontakt, screenshot i listu konkretnih problema. Besplatno u Beta fazi.",
   keywords: [
     "lead generation Srbija",
     "firme bez sajta",
@@ -26,7 +26,6 @@ export const metadata: Metadata = {
     "web dizajn leadovi",
     "Google Maps scraper Srbija",
     "prospekti za web agencije",
-    "kako naći klijente za izradu sajtova",
   ],
   authors: [{ name: site.author }],
   creator: site.author,
@@ -37,15 +36,15 @@ export const metadata: Metadata = {
     locale: "sr_RS",
     url: site.url,
     siteName: site.name,
-    title: "Sajtoskop | Prestani da guglaš klijente",
+    title: "Sajtoskop | Nađi firme u Srbiji koje nemaju sajt",
     description:
-      "Spisak firmi bez sajta u tvom gradu je gotov za 4 minuta. Sa telefonom, screenshotom i porukom spremnom za slanje. 7 dana besplatno.",
+      "U Šapcu 58% PVC stolarija nema sajt koji radi. Sajtoskop zna njihova imena, telefone i tačan problem.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sajtoskop | Prestani da guglaš klijente",
+    title: "Sajtoskop | Nađi firme u Srbiji koje nemaju sajt",
     description:
-      "Spisak firmi bez sajta u tvom gradu je gotov za 4 minuta. Sa telefonom, screenshotom i porukom spremnom za slanje. 7 dana besplatno.",
+      "U Šapcu 58% PVC stolarija nema sajt koji radi. Sajtoskop zna njihova imena, telefone i tačan problem.",
   },
   robots: {
     index: true,

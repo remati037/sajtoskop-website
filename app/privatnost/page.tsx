@@ -58,7 +58,7 @@ export default function Page() {
           Nezainteresovan) — vidljivi su isključivo tebi.
         </li>
         <li>
-          Osnovni tehnički podaci pri prijavi na beta listu: izvor prijave, User-Agent i
+          Osnovni tehnički podaci pri registraciji i prijavi na listu obaveštenja: izvor prijave, User-Agent i
           referer. Koriste se samo da razumem odakle ljudi dolaze.
         </li>
       </ul>
@@ -70,12 +70,12 @@ export default function Page() {
           neophodna je da bi ti uslugu uopšte pružio.
         </li>
         <li>
-          <strong>Pristanak</strong> — prijava na beta listu i mejlovi o statusu bete. Pristanak
+          <strong>Pristanak</strong> — prijava na listu obaveštenja i mejlovi o novostima. Pristanak
           povlačiš u svakom trenutku, jednim odgovorom na bilo koji moj mejl.
         </li>
         <li>
           <strong>Legitimni interes</strong> — bezbednost sistema i sprečavanje zloupotrebe
-          (na primer, otvaranje više naloga radi dodatnih besplatnih kredita).
+          (na primer, otvaranje više naloga radi ponovnog korišćenja probnog perioda).
         </li>
       </ul>
 
@@ -87,7 +87,7 @@ export default function Page() {
           koje sam po propisu dužan da zadržim.
         </li>
         <li>
-          Prijave sa beta liste koje nikad nisu postale nalog brišem najkasnije dvanaest meseci
+          Prijave sa liste obaveštenja koje nikad nisu postale nalog brišem najkasnije dvanaest meseci
           nakon zatvaranja bete.
         </li>
       </ul>

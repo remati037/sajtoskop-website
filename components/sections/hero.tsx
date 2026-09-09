@@ -5,9 +5,24 @@ import { Reveal } from "../motion-primitives";
 import { ScanDemo } from "../scan-demo";
 import { WaitlistForm } from "../waitlist-form";
 
-export function Hero() {
-  const [before, after] = hero.titleLine1.split(hero.titleAccent);
+/**
+ * Boji `hero.titleAccent` u redu u kom se nalazi. Akcenat sme da bude u bilo
+ * kom od dva reda naslova, pa se kopi menja bez diranja komponente.
+ */
+function TitleLine({ line, accent }: { line: string; accent: string }) {
+  const at = line.indexOf(accent);
+  if (at === -1) return <>{line}</>;
 
+  return (
+    <>
+      {line.slice(0, at)}
+      <span style={{ color: "var(--accent-text)" }}>{accent}</span>
+      {line.slice(at + accent.length)}
+    </>
+  );
+}
+
+export function Hero() {
   return (
     <section className="noise relative overflow-hidden pt-[calc(68px+clamp(2rem,4.5vw,3.5rem))] pb-[clamp(2.5rem,5vw,4.5rem)]">
       <div className="grid-bg" aria-hidden />
@@ -30,7 +45,7 @@ export function Hero() {
               className="rounded-full px-2 py-0.5 text-[10.5px] font-semibold tracking-[0.02em]"
               style={{ background: "var(--accent)", color: "var(--accent-ink)" }}
             >
-              BETA
+              NOVO
             </span>
             <span className="text-[12.5px] text-fg-muted">{hero.badge}</span>
           </div>
@@ -39,13 +54,11 @@ export function Hero() {
         {/* naslov */}
         <Reveal delay={0.06} className="mt-6 max-w-[900px]">
           <h1 className="h-display">
-            {before}
-            <span className="relative inline-block">
-              <span style={{ color: "var(--accent-text)" }}>{hero.titleAccent}</span>
+            <TitleLine line={hero.titleLine1} accent={hero.titleAccent} />
+            <br className="hidden sm:block" />{" "}
+            <span className="text-fg">
+              <TitleLine line={hero.titleLine2} accent={hero.titleAccent} />
             </span>
-            {after}
-            <br className="hidden sm:block" />
-            <span className="text-fg"> {hero.titleLine2}</span>
           </h1>
         </Reveal>
 

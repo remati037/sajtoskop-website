@@ -8,10 +8,10 @@ import { Anatomy } from "@/components/sections/anatomy";
 import { Local } from "@/components/sections/local";
 import { Compare } from "@/components/sections/compare";
 import { Audience } from "@/components/sections/audience";
-import { Beta } from "@/components/sections/beta";
+import { Pricing } from "@/components/sections/pricing";
 import { Faq } from "@/components/sections/faq";
 import { FinalCta } from "@/components/sections/final-cta";
-import { faq } from "@/lib/content";
+import { faq, pricing, trial } from "@/lib/content";
 import { site } from "@/lib/site";
 
 /** JSON-LD: pomaže da se FAQ i proizvod pravilno indeksiraju. */
@@ -28,12 +28,15 @@ function StructuredData() {
       description:
         "Lead-gen alat koji pronalazi biznise u Srbiji sa lošim ili nepostojećim sajtovima i priprema outreach materijal za web dizajnere, frilensere i agencije.",
       author: { "@type": "Person", name: site.author },
-      offers: {
+      // Jedna ponuda po planu — Google prikazuje raspon „od 29 €" u rezultatima.
+      offers: pricing.plans.map((plan) => ({
         "@type": "Offer",
-        price: "0",
-        priceCurrency: "RSD",
-        description: "Besplatna beta — 30 kredita mesečno, bez kartice.",
-      },
+        name: plan.name,
+        price: String(plan.priceMonthly),
+        priceCurrency: "EUR",
+        category: "SubscriptionPlan",
+        description: `${plan.tagline} ${plan.features[0]}. ${trial.days} dana besplatno.`,
+      })),
     },
     {
       "@context": "https://schema.org",
@@ -68,7 +71,7 @@ export default function Page() {
         <Local />
         <Compare />
         <Audience />
-        <Beta />
+        <Pricing />
         <Faq />
         <FinalCta />
       </main>

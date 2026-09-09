@@ -90,7 +90,7 @@ export function ScanDemo() {
           <div className="mx-auto hidden max-w-[280px] flex-1 items-center justify-center gap-1.5 rounded-md border border-border bg-bg px-2.5 py-1 sm:flex">
             <span className="num text-[10.5px] text-fg-faint">app.sajtoskop.com/pretraga</span>
           </div>
-          <span className="eyebrow ml-auto text-[9.5px] sm:ml-0">beta</span>
+          <span className="eyebrow ml-auto text-[9.5px] sm:ml-0">{scanDemo.badge}</span>
         </div>
 
         {/* ── traka sa upitom ────────────────────────────────────── */}
