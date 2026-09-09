@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Politika privatnosti",
   description:
-    "Kako Sajtoskop obrađuje podatke o ličnosti — koji podaci, po kom osnovu, koliko dugo se čuvaju i kako tražiš brisanje.",
+    "Kako Sajtoskop obrađuje podatke o ličnosti: koji podaci, po kom osnovu, koliko dugo se čuvaju i kako tražiš brisanje.",
   robots: { index: true, follow: true },
 };
 
@@ -34,11 +34,11 @@ export default function Page() {
       </p>
       <ul>
         <li>
-          <strong>Podaci o tebi kao korisniku</strong> — mejl adresa i minimum tehničkih
+          <strong>Podaci o tebi kao korisniku</strong>: mejl adresa i minimum tehničkih
           podataka potrebnih da nalog radi.
         </li>
         <li>
-          <strong>Podaci o poslovnim subjektima</strong> koje alat prikazuje — javno objavljeni
+          <strong>Podaci o poslovnim subjektima</strong> koje alat prikazuje, a to su javno objavljeni
           kontakt podaci firmi i preduzetnika. Kod preduzetnika i malih firmi ti podaci mogu
           istovremeno biti i podaci o ličnosti.
         </li>
@@ -48,33 +48,33 @@ export default function Page() {
 
       <h3>Šta se obrađuje</h3>
       <ul>
-        <li>Mejl adresa — obavezna, bez nje nalog ne postoji.</li>
+        <li>Mejl adresa, obavezna je jer bez nje nalog ne postoji.</li>
         <li>
-          Datum registracije, stanje kredita i istorija otključavanja — potrebni da bi usluga
+          Datum registracije, stanje kredita i istorija otključavanja, potrebni da bi usluga
           radila i da ne bi platio isti prospekt dvaput.
         </li>
         <li>
-          Statusi u tvom pipeline-u (Nekontaktiran, Kontaktiran, Odgovorio, Potpisan,
-          Nezainteresovan) — vidljivi su isključivo tebi.
+          Statusi na tvojoj tabli (Nekontaktiran, Kontaktiran, Odgovorio, Potpisan,
+          Nezainteresovan), vidljivi su isključivo tebi.
         </li>
         <li>
-          Osnovni tehnički podaci pri registraciji i prijavi na listu obaveštenja: izvor prijave, User-Agent i
-          referer. Koriste se samo da razumem odakle ljudi dolaze.
+          Osnovni tehnički podaci pri registraciji i prijavi na listu obaveštenja: izvor prijave, vrsta
+          pretraživača i stranica sa koje si došao. Koriste se samo da razumem odakle ljudi dolaze.
         </li>
       </ul>
 
       <h3>Osnov obrade</h3>
       <ul>
         <li>
-          <strong>Izvršenje ugovora</strong> — obrada mejla, kredita i istorije otključavanja
+          <strong>Izvršenje ugovora</strong>: obrada mejla, kredita i istorije otključavanja
           neophodna je da bi ti uslugu uopšte pružio.
         </li>
         <li>
-          <strong>Pristanak</strong> — prijava na listu obaveštenja i mejlovi o novostima. Pristanak
+          <strong>Pristanak</strong>: prijava na listu obaveštenja i mejlovi o novostima. Pristanak
           povlačiš u svakom trenutku, jednim odgovorom na bilo koji moj mejl.
         </li>
         <li>
-          <strong>Legitimni interes</strong> — bezbednost sistema i sprečavanje zloupotrebe
+          <strong>Legitimni interes</strong>: bezbednost sistema i sprečavanje zloupotrebe
           (na primer, otvaranje više naloga radi ponovnog korišćenja probnog perioda).
         </li>
       </ul>
@@ -87,24 +87,24 @@ export default function Page() {
           koje sam po propisu dužan da zadržim.
         </li>
         <li>
-          Prijave sa liste obaveštenja koje nikad nisu postale nalog brišem najkasnije dvanaest meseci
-          nakon zatvaranja bete.
+          Prijave sa liste obaveštenja koje nikad nisu postale nalog brišem najkasnije dvanaest
+          meseci nakon prijave.
         </li>
       </ul>
 
       <h2>4. Podaci o poslovnim subjektima</h2>
       <p>
-        Alat prikazuje naziv firme, kategoriju, adresu, telefon, mejl i adresu sajta — podatke
-        koje su te firme same javno objavile na Google Maps-u ili na svom sajtu. Podaci se
-        pribavljaju preko zvaničnog Google Places API-ja, a sajtovi se čitaju uz poštovanje
-        <code> robots.txt</code> fajla, sa identifikujućim User-Agent-om i najviše jednim
-        zahtevom u sekundi po domenu.
+        Alat prikazuje naziv firme, kategoriju, adresu, telefon, mejl i adresu sajta, dakle podatke
+        koje su te firme same javno objavile na Google Mapsu ili na svom sajtu. Podaci se
+        pribavljaju preko zvaničnog Google Places servisa, a sajtove čitam polako, najviše jedan
+        zahtev u sekundi po domenu, uz poštovanje pravila iz
+        <code> robots.txt</code> fajla i uz jasno predstavljanje ko sam.
       </p>
       <p>
-        Kod preduzetnika i mikro firmi kontakt podatak može istovremeno biti i podatak o
-        ličnosti. Osnov obrade je legitimni interes — poslovna komunikacija između privrednih
-        subjekata, u obimu koji je za tu svrhu neophodan. Podaci sa Google-a se ne čuvaju duže
-        od trideset dana bez osvežavanja.
+        Kod preduzetnika i malih firmi kontakt podatak može istovremeno biti i podatak o
+        ličnosti. Osnov obrade je legitimni interes, to jest poslovna komunikacija između privrednih
+        subjekata, u obimu koji je za tu svrhu neophodan. Podaci sa Googla se ne čuvaju duže od
+        trideset dana bez osvežavanja.
       </p>
       <p>
         <strong>Ako si vlasnik firme koja se pojavljuje u Sajtoskopu</strong> i ne želiš da tvoji
@@ -118,11 +118,11 @@ export default function Page() {
         obrađivače, isključivo za rad same usluge:
       </p>
       <ul>
-        <li><strong>Supabase</strong> — baza podataka i skladište fajlova.</li>
-        <li><strong>Vercel</strong> — hostovanje veb aplikacije.</li>
-        <li><strong>Clerk</strong> — autentifikacija korisnika.</li>
-        <li><strong>Resend</strong> — slanje transakcionih mejlova.</li>
-        <li><strong>Google Places API</strong> — izvor podataka o poslovnim subjektima.</li>
+        <li><strong>Supabase</strong>: baza podataka i skladište fajlova.</li>
+        <li><strong>Vercel</strong>: hostovanje veb aplikacije.</li>
+        <li><strong>Clerk</strong>: prijava i odjava korisnika.</li>
+        <li><strong>Resend</strong>: slanje mejlova iz aplikacije.</li>
+        <li><strong>Google Places API</strong>: izvor podataka o poslovnim subjektima.</li>
       </ul>
       <p>
         Neki od ovih obrađivača imaju infrastrukturu izvan Republike Srbije, pretežno u
@@ -139,7 +139,7 @@ export default function Page() {
       <h2>7. Kolačići i analitika</h2>
       <p>
         Landing stranica ne postavlja marketinške kolačiće. Jedina stvar koja se čuva u tvom
-        pretraživaču je izbor teme (svetla ili tamna), u lokalnom skladištu — to nije kolačić
+        pretraživaču je izbor teme (svetla ili tamna), u lokalnom skladištu tvog pretraživača, a to nije kolačić
         i ne napušta tvoj uređaj.
       </p>
       <p>
@@ -172,7 +172,7 @@ export default function Page() {
       <p>
         Pošalji mejl na <a href={`mailto:${site.email}`}>{site.email}</a> sa naslovom „Brisanje
         podataka", sa mejl adrese koja je vezana za nalog. Postupam u roku od trideset dana i
-        potvrđujem ti kad je izvršeno. Ova procedura stvarno postoji i sprovodi se ručno — nije
+        potvrđujem ti kad je izvršeno. Ova procedura stvarno postoji i sprovodi se ručno, nije
         samo rečenica u ovom tekstu.
       </p>
 
@@ -180,14 +180,14 @@ export default function Page() {
       <p>
         Ako smatraš da ti je obradom povređeno pravo, možeš da podneseš pritužbu Povereniku za
         informacije od javnog značaja i zaštitu podataka o ličnosti Republike Srbije. Bio bih
-        zahvalan da se prvo javiš meni — verovatno je nešto što mogu odmah da ispravim.
+        zahvalan da se prvo javiš meni, jer je verovatno nešto što mogu odmah da ispravim.
       </p>
 
       <h2>10. Bezbednost</h2>
       <p>
         Pristup bazi je zaključan na nivou svakog reda (row level security). Zaključana polja
-        prospekata ne postoje u odgovoru servera dok se ne otključaju — nisu sakrivena
-        stilizovanjem, već se uopšte ne šalju. Komunikacija ide isključivo preko HTTPS-a.
+        prospekata ne postoje u odgovoru servera dok se ne otključaju, nisu sakrivena
+        stilizovanjem, već se uopšte ne šalju. Sav saobraćaj ide isključivo preko zaštićene veze.
       </p>
 
       <h2>11. Izmene ove politike</h2>

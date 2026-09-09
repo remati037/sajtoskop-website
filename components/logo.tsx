@@ -33,7 +33,7 @@ export function Logo({
     <Link
       href={href}
       className={`group inline-flex items-center gap-2.5 ${className}`}
-      aria-label="Sajtoskop — početna"
+      aria-label="Sajtoskop, početna strana"
     >
       <LogoMark className="h-[22px] w-[22px] text-fg transition-transform duration-300 group-hover:rotate-[-12deg]" />
       <span className="text-[15px] font-semibold tracking-[-0.03em] text-fg">

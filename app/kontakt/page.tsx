@@ -18,7 +18,7 @@ export default function Page() {
   const links = [
     { href: `mailto:${site.email}`, label: site.email, sub: "Odgovaram lično", Icon: Mail },
     site.instagram
-      ? { href: site.instagram, label: "Instagram", sub: "Brz odgovor u DM-u", Icon: InstagramIcon }
+      ? { href: site.instagram, label: "Instagram", sub: "Brz odgovor u poruci", Icon: InstagramIcon }
       : null,
     site.linkedin
       ? { href: site.linkedin, label: "LinkedIn", sub: "Ako ti je tako lakše", Icon: LinkedinIcon }
@@ -43,7 +43,7 @@ export default function Page() {
             <div>
               <h1 className="h1">Piši mi.</h1>
               <p className="lede mt-5">
-                Iza Sajtoskopa nema tima ni kontakt centra — ima {site.author.split(" ")[0]}. Sve
+                Iza Sajtoskopa nema tima ni kontakt centra, nego samo {site.author.split(" ")[0]}. Sve
                 što pošalješ ovde dolazi direktno meni i ja ti odgovaram.
               </p>
 

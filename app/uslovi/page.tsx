@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Uslovi korišćenja",
   description:
-    "Uslovi korišćenja Sajtoskopa — pravila pristupa, pretplata i naplata, zabrane i odgovornost korisnika.",
+    "Uslovi korišćenja Sajtoskopa: pravila pristupa, pretplata i naplata, zabrane i odgovornost korisnika.",
   robots: { index: true, follow: true },
 };
 
@@ -31,7 +31,7 @@ export default function Page() {
       <h2>2. Šta usluga radi</h2>
       <p>
         Sajtoskop pretražuje javno dostupne podatke o poslovnim subjektima preko zvaničnog
-        Google Places API-ja, procenjuje stanje njihovih veb sajtova i prikazuje ti rezultat
+        Google Places servisa, procenjuje stanje njihovih veb sajtova i prikazuje ti rezultat
         zajedno sa materijalom za kontakt. Alat ti daje informaciju. Odluku šta ćeš sa tom
         informacijom da uradiš donosiš ti.
       </p>
@@ -52,22 +52,21 @@ export default function Page() {
           izabranog plana. Ako otkažeš pretplatu pre isteka probe, naplate nema.
         </li>
         <li>
-          <strong>Pretplata se obnavlja automatski</strong> — mesečno ili godišnje, u zavisnosti
-          od izabranog ciklusa — dok je ne otkažeš. Otkazivanje je dostupno u svakom trenutku
+          <strong>Pretplata se obnavlja sama</strong>, mesečno ili godišnje, zavisno od toga
+          šta si izabrao, sve dok je ne otkažeš. Otkazivanje je dostupno u svakom trenutku
           kroz podešavanja naloga.
         </li>
         <li>
           Posle otkazivanja pristup ostaje aktivan do kraja već plaćenog perioda. Iznos za
-          započeti period se ne vraća srazmerno, niti nudim povraćaj novca za neiskorišćene
-          kredite.
+          započeti period se ne vraća, niti nudim povraćaj novca za neiskorišćene kredite.
         </li>
         <li>
           Plan možeš da promeniš u svakom trenutku. Razlika u ceni obračunava se od trenutka
           promene.
         </li>
         <li>
-          Cene su iskazane u evrima i konačne su — to je iznos koji se naplaćuje. Naplatu
-          obrađuje Stripe; podatke o kartici ne primam niti čuvam.
+          Cene su u evrima i konačne su, to je iznos koji se naplaćuje. Naplatu obrađuje
+          Stripe, a podatke o kartici ne primam niti čuvam.
         </li>
         <li>
           <strong>O promeni cene obaveštavam te mejlom najmanje trideset dana unapred.</strong>{" "}
@@ -104,8 +103,8 @@ export default function Page() {
       <p>Zabranjeno je, i predstavlja osnov za trenutnu suspenziju naloga:</p>
       <ul>
         <li>
-          <strong>Automatizovan pristup</strong> usluzi — skripte, botovi, headless pretraživači,
-          scraping stranica ili API poziva izvan zvaničnog korisničkog interfejsa.
+          <strong>Automatizovan pristup</strong> usluzi, kao što su skripte, botovi, automatski
+          pretraživači ili preuzimanje stranica izvan zvaničnog korisničkog dela sajta.
         </li>
         <li>
           <strong>Reverse engineering</strong>, dekompilacija ili pokušaj rekonstrukcije logike
@@ -113,7 +112,7 @@ export default function Page() {
         </li>
         <li>
           <strong>Preprodaja, dalja distribucija ili deljenje</strong> podataka dobijenih kroz
-          uslugu, u bilo kom obliku — uključujući izvoz u tabelu koja se prosleđuje trećem licu.
+          uslugu, u bilo kom obliku, uključujući izvoz u tabelu koja se prosleđuje trećem licu.
         </li>
         <li>
           <strong>Korišćenje podataka ili uvida iz usluge za izgradnju konkurentskog proizvoda</strong>,
@@ -146,7 +145,7 @@ export default function Page() {
         </li>
         <li>
           U svakoj poruci moraš jasno da se predstaviš i da omogućiš primaocu da traži da ga
-          više ne kontaktiraš. U alatu postoji šablon za opt-out — koristi ga.
+          više ne kontaktiraš. U alatu postoji gotova rečenica kojom nudiš odjavu, iskoristi je.
         </li>
         <li>
           Ako te neko zamoli da ga ne kontaktiraš, dužan si da to ispoštuješ. Sajtoskop tu
@@ -165,8 +164,8 @@ export default function Page() {
       <h2>7. Krediti</h2>
       <ul>
         <li>
-          Otključavanje jednog prospekta troši jedan kredit. Isti prospekt ne plaćaš dvaput —
-          jednom otključan, ostaje otključan za tvoj nalog.
+          Otključavanje jednog prospekta troši jedan kredit. Isti prospekt ne plaćaš dvaput,
+          jednom otključan ostaje otključan za tvoj nalog.
         </li>
         <li>
           Krediti su interna jedinica korišćenja usluge. Nemaju novčanu vrednost, ne mogu se
@@ -181,8 +180,8 @@ export default function Page() {
       <h2>8. Tačnost podataka</h2>
       <p>
         Podaci dolaze iz spoljnog izvora (Google Maps) i iz automatske analize javno dostupnih
-        sajtova. Trudim se da budu tačni i sveži — podaci sa Google-a se osvežavaju u
-        tridesetodnevnom ciklusu, a ocena sajta se radi u trenutku otključavanja. Uprkos tome,
+        sajtova. Trudim se da budu tačni i sveži. podaci sa Googla se osvežavaju na svakih
+        trideset dana, a ocena sajta se radi u trenutku otključavanja. Uprkos tome,
         ne garantujem tačnost, potpunost niti aktuelnost bilo kog pojedinačnog podatka.
         Proveri pre nego što se osloniš na njega.
       </p>
@@ -228,7 +227,7 @@ export default function Page() {
       <p>
         Sajtoskop nije povezan sa kompanijom Google LLC, niti ga ona podržava ili sponzoriše.
         Google i Google Maps su zaštićeni znaci kompanije Google LLC. Podaci se pribavljaju
-        preko zvaničnog Google Places API-ja, uz poštovanje uslova korišćenja te usluge.
+        preko zvaničnog Google Places servisa, uz poštovanje uslova korišćenja te usluge.
       </p>
 
       <p style={{ marginTop: "2.5rem", fontSize: "0.85rem" }}>

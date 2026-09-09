@@ -26,7 +26,7 @@ function StructuredData() {
       url: site.url,
       inLanguage: "sr-Latn-RS",
       description:
-        "Lead-gen alat koji pronalazi biznise u Srbiji sa lošim ili nepostojećim sajtovima i priprema outreach materijal za web dizajnere, frilensere i agencije.",
+        "Alat koji pronalazi firme u Srbiji sa lošim ili nepostojećim sajtovima i priprema poruku za njih, za web dizajnere, frilensere i agencije.",
       author: { "@type": "Person", name: site.author },
       // Jedna ponuda po planu — Google prikazuje raspon „od 29 €" u rezultatima.
       offers: pricing.plans.map((plan) => ({

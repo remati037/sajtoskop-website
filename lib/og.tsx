@@ -206,7 +206,7 @@ export function LandscapeCard() {
           <TitleLine line={hero.titleLine2} size={74} />
         </div>
         <div style={{ fontSize: 26, color: MUTED, maxWidth: 900, lineHeight: 1.4, display: "flex" }}>
-          Firme u tvom gradu koje nemaju sajt — sa telefonom, screenshotom i gotovom porukom.
+          Firme u tvom gradu koje nemaju sajt, sa telefonom, screenshotom i gotovom porukom.
         </div>
       </div>
 

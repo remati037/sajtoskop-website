@@ -44,7 +44,7 @@ export function ContactForm() {
     }
     if (message.length < 10) {
       setState("error");
-      setError("Napiši bar rečenicu — teško mi je da odgovorim na tri slova.");
+      setError("Napiši bar rečenicu, teško mi je da odgovorim na tri slova.");
       return;
     }
 

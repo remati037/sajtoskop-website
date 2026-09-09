@@ -199,7 +199,7 @@ export function ScanDemo() {
                           <Lock size={11} strokeWidth={2.2} />
                         </span>
                       ) : (
-                        <span className="text-[11px] text-fg-faint">—</span>
+                        <span className="text-[11px] text-fg-faint">·</span>
                       )}
                     </div>
 
